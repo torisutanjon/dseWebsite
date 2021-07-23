@@ -1,0 +1,174 @@
+@import url("https://fonts.googleapis.com/css2?family=Berkshire+Swash&display=swap");
+
+.mainPage_body {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  background: white;
+}
+
+.mainPage_topnav {
+  position: relative;
+  width: 100%;
+  height: 10%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-content: center;
+}
+.left_div {
+  position: relative;
+  height: 100%;
+  width: 60%;
+  text-align: left;
+  margin-left: 5%;
+  display: flex;
+  align-items: center;
+}
+.left_div_p {
+  font-size: 36px;
+  color: 313035;
+  font-family: "Berkshire Swash", cursive;
+}
+.right_nav {
+  position: relative;
+  height: 100%;
+  width: 50%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.right_div {
+  position: relative;
+  height: 100%;
+  width: 25%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.home .p_div {
+  color: #f476ab;
+}
+.p_div {
+  color: rgb(0, 0, 0, 0.6);
+  font-size: 24px;
+  font-family: "Roboto", sans-serif;
+  cursor: pointer;
+  transition: 0.4s;
+}
+
+.mainPage_botnav {
+  position: relative;
+  width: 100%;
+  height: 90%;
+  background: rgb(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.mainPage_botnav_left_div {
+  position: relative;
+  height: 100%;
+  width: 45%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: left;
+}
+
+.p_container {
+  position: relative;
+  height: 100%;
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.mbld_p1_div {
+  position: relative;
+  width: 100%;
+  height: 15%;
+  display: flex;
+  align-items: center;
+  text-align: left;
+}
+.mbld_p1 {
+  font-family: "Roboto", sans-serif;
+  font-size: 86px;
+  color: #2a0eee;
+  font-weight: bold;
+}
+.mbld_p2_div {
+  position: relative;
+  width: 100%;
+  height: 10%;
+  display: flex;
+  align-items: center;
+  text-align: left;
+}
+.mbld_p2 {
+  font-family: "Roboto", sans-serif;
+  font-size: 25px;
+  color: #ff498b;
+  font-weight: bold;
+}
+.mbld_p3_div {
+  position: relative;
+  width: 100%;
+  height: 15%;
+  display: flex;
+  align-items: center;
+  text-align: left;
+}
+.mbld_p3 {
+  font-family: "Roboto", sans-serif;
+  font-size: 25px;
+  color: rgb(0, 0, 0, 0.55);
+}
+
+.check_internship_btn {
+  position: relative;
+  height: 60px;
+  width: 50%;
+  background: #ff498b;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  border-radius: 14px;
+  transition: 0.4s;
+  font-size: 15px;
+  color: white;
+  font-weight: bold;
+}
+.check_internship_btn:hover {
+  color: gray;
+  background: #fa9abd;
+}
+.check_internship_btn:active {
+  color: white;
+}
+.mainPage_botnav_right_div {
+  position: relative;
+  height: 100%;
+  width: 55%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-right: 10%;
+}
+.mainpage_img {
+  position: relative;
+  height: 90%;
+  width: 75%;
+}

@@ -1,0 +1,370 @@
+@import url("https://fonts.googleapis.com/css2?family=Berkshire+Swash&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap");
+.internship_mainbody {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.internship_topnav {
+  position: relative;
+  width: 100%;
+  height: 10%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-content: center;
+  box-shadow: 0 0 4px 0 rgb(0, 0, 0, 0.25);
+}
+.internship_botnav {
+  position: relative;
+  width: 100%;
+  height: 90%;
+  background: rgb(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.topnav_left_div {
+  position: relative;
+  height: 100%;
+  width: 60%;
+  display: flex;
+  align-items: center;
+  text-align: left;
+  padding-left: 5%;
+}
+
+.topnav_left_div p {
+  font-family: "Berkshire Swash", cursive;
+  font-size: 36px;
+  color: 313035;
+}
+
+.topnav_right_div {
+  position: relative;
+  height: 100%;
+  width: 50%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.topdivs {
+  position: relative;
+  height: 100%;
+  width: 25%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.topdivs p {
+  font-family: "Roboto", Sans-serif;
+  font-size: 20px;
+  color: rgb(0, 0, 0, 0.6);
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.internships p {
+  color: rgb(244, 118, 171, 0.99);
+}
+.internship_botnav {
+  position: relative;
+  height: 90%;
+  margin-top: 0.5%;
+  background: white;
+}
+
+.botnav_leftnav {
+  position: relative;
+  height: 100%;
+  width: 25%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.left_container {
+  position: relative;
+  height: 95%;
+  width: 90%;
+  border: 1px rgb(0, 0, 0, 0.1) solid;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+}
+.search_div {
+  position: relative;
+  height: 25%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.search_div input[type="text"] {
+  position: relative;
+  height: 22%;
+  width: 70%;
+  border-radius: 10px;
+  padding-left: 5%;
+  border: 1px rgb(0, 0, 0, 0.2) solid;
+  font-size: 15px;
+  font-family: "Roboto", Sans-serif;
+  outline: none;
+}
+
+.search_div button[type="button"] {
+  position: relative;
+  height: 22%;
+  width: 40%;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  font-family: "Roboto", Sans-serif;
+  font-size: 15px;
+  color: white;
+  background: #ff66a6;
+  cursor: pointer;
+  transition: 0.4s;
+}
+.search_div button[type="button"]:hover {
+  color: rgb(121, 121, 121);
+}
+.search_div button[type="button"]:active {
+  background: #f0a5c4;
+  color: rgb(128, 128, 128, 0.5);
+}
+.just_line {
+  position: relative;
+  height: 1px;
+  width: 75%;
+  border-bottom: 1px rgb(0, 0, 0, 0.24) solid;
+}
+
+.field_nav {
+  position: relative;
+  height: 85%;
+  width: 90%;
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.field_nav_title {
+  position: relative;
+  height: 10%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  text-align: left;
+  padding-left: 10%;
+}
+.field_nav_title p {
+  color: rgb(0, 0, 0, 0.68);
+  font-weight: bold;
+  font-size: 17px;
+  font-family: "Roboto", Sans-serif;
+}
+
+.fields_divs p {
+  position: relative;
+  font-family: "Roboto", Sans-serif;
+  font-size: 15px;
+  color: rgb(0, 0, 0, 0.63);
+  margin-left: 5%;
+}
+
+.checker_input_container {
+  position: relative;
+  height: 90%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.checker_div,
+.checked_submit_btn {
+  position: relative;
+  height: 10%;
+  width: 100%;
+  text-align: left;
+  padding-left: 15%;
+  display: flex;
+  align-items: center;
+}
+.checked_submit_btn {
+  justify-content: center;
+}
+.checker_div input[type="radio"] {
+  height: 50%;
+  width: 15%;
+  cursor: pointer;
+}
+.checker_div label {
+  margin-left: 5%;
+  font-family: "Roboto", Sans-serif;
+  font-size: 15px;
+  color: rgb(0, 0, 0, 0.63);
+}
+
+.checked_submit_btn button[type="button"] {
+  position: relative;
+  align-self: center;
+  justify-self: center;
+  border: none;
+  background: #ff66a6;
+  width: 75px;
+  height: 25px;
+  color: white;
+  font-family: "Roboto", Sans-serif;
+  border-radius: 7px;
+  outline: none;
+  cursor: pointer;
+  transition: 0.4s;
+  font-size: 12px;
+}
+.checked_submit_btn button[type="button"]:hover {
+  background: #ffa8cc;
+}
+.checked_submit_btn button[type="button"]:active {
+  background: #ff66a6;
+}
+.botnav_rightnav {
+  position: relative;
+  height: 95%;
+  width: 85%;
+  display: grid;
+  /* margin: .%; */
+  grid-template-columns: 24% 24% 24% 24%;
+}
+
+.div_main_body {
+  position: relative;
+  height: 90%;
+  width: 95%;
+  margin: 5%;
+  margin-bottom: 0;
+  border: 1px rgb(0, 0, 0, 0.1) solid;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+.date_post_div {
+  position: relative;
+  height: 10%;
+  width: 100%;
+}
+
+.posted-p {
+  position: relative;
+  left: 45%;
+  color: rgb(0, 0, 0, 0.7);
+  font-size: 11px;
+}
+
+.company_logo_div {
+  position: relative;
+  height: 15%;
+  width: 25%;
+  background: red;
+  margin-left: 5%;
+}
+
+.company_logo_div img {
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+.companyName_div,
+.position_div {
+  position: relative;
+  height: 10%;
+  width: 95%;
+  display: flex;
+  align-items: center;
+  margin-left: 5%;
+}
+
+.companyName_div p {
+  position: relative;
+  font-size: 24px;
+  font-weight: bold;
+  color: rgb(42, 14, 238, 0.75);
+}
+
+.position_div p {
+  position: relative;
+  font-weight: bold;
+  font-size: 18px;
+  color: rgb(42, 14, 238, 0.63);
+}
+.desc_div {
+  position: relative;
+  height: 25%;
+  width: 95%;
+  margin: 5%;
+}
+
+.desc_div p {
+  position: relative;
+  font-size: 18px;
+  font-weight: normal;
+  font-family: "Roboto", sans-serif;
+  color: rgb(0, 0, 0, 0.69);
+}
+.duration_div {
+  position: relative;
+  height: 10%;
+  width: 95%;
+  margin-left: 5%;
+}
+.duration_div p {
+  position: relative;
+  font-size: 14px;
+  font-family: "Roboto", sans-serif;
+}
+.apply_button_div {
+  position: relative;
+  height: 15%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.apply_button_div button {
+  position: relative;
+  height: 80%;
+  width: 45%;
+  margin-left: auto;
+  margin-right: 5%;
+  border: none;
+  cursor: pointer;
+  background: rgb(244, 118, 171, 0.65);
+  font-weight: bold;
+  font-size: 18px;
+  color: white;
+  border-radius: 5px;
+}
+.apply_button_div button:hover {
+  background: rgba(245, 85, 152, 0.65);
+  color: rgb(255, 217, 233);
+}
+.apply_button_div button:active {
+  background: rgba(248, 183, 210, 0.65);
+  color: rgb(244, 118, 171, 0.65);
+}
