@@ -1,17 +1,39 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./intershipPage.css";
 import { internshipInfos } from "../../data/internshipinfos";
+import { useHistory } from "react-router-dom";
 
 const IntershipPage = () => {
   const [selectedfield, setselectedfield] = useState("agriculture");
-  const [checked, setCheck] = useState(true);
 
   const homePageHandler = () => {
     window.location.href = "/";
   };
 
   const internshipPage = () => {
-    window.location.href = "/intershipPage";
+    window.location.href = `/intershipPage/${selectedfield}`;
+  };
+
+  useEffect(() => {
+    var radioButtons = [];
+    radioButtons = document.getElementsByClassName("radiobtn");
+    for (var i = 0; i < radioButtons.length; i++) {
+      if (radioButtons[i].id === selectedfield) {
+        radioButtons[i].checked = true;
+        // console.log(true);
+        console.log(radioButtons[i].id);
+      } else {
+        radioButtons[i].checked = false;
+        // console.log(false);
+      }
+    }
+
+    // console.log(radioButtons);
+  }, [selectedfield]);
+
+  let history = useHistory();
+  const pushHistoryHandler = (params) => {
+    history.push(`/intershipPage/${params}`);
   };
 
   return (
@@ -67,13 +89,12 @@ const IntershipPage = () => {
                     name="field"
                     id="agriculture"
                     value="agriculture"
-                    checked={checked}
                     onClick={() => {
-                      setCheck(true);
-                      setselectedfield("Agriculture");
+                      setselectedfield("agriculture");
+                      pushHistoryHandler("agriculture");
                     }}
                   />
-                  <label for="agriculture">Agriculture</label>
+                  <label htmlFor="agriculture">Agriculture</label>
                 </div>
 
                 <div className="checker_div">
@@ -84,11 +105,11 @@ const IntershipPage = () => {
                     id="architecture"
                     value="architecture"
                     onClick={() => {
-                      setCheck(false);
                       setselectedfield("architecture");
+                      pushHistoryHandler("architecture");
                     }}
                   />
-                  <label for="architecture">Architecture</label>
+                  <label htmlFor="architecture">Architecture</label>
                 </div>
 
                 <div className="checker_div">
@@ -96,14 +117,14 @@ const IntershipPage = () => {
                     className="radiobtn"
                     type="radio"
                     name="field"
-                    id="bam"
+                    id="businessandmarketing"
                     value="bam"
                     onClick={() => {
-                      setCheck(false);
-                      setselectedfield("bam");
+                      setselectedfield("businessandmarketing");
+                      pushHistoryHandler("businessandmarketing");
                     }}
                   />
-                  <label for="bam">Business And Marketing</label>
+                  <label htmlFor="bam">Business And Marketing</label>
                 </div>
 
                 <div className="checker_div">
@@ -111,14 +132,14 @@ const IntershipPage = () => {
                     className="radiobtn"
                     type="radio"
                     name="field"
-                    id="cam"
+                    id="communicationandmedia"
                     value="cam"
                     onClick={() => {
-                      setCheck(false);
-                      setselectedfield("cam");
+                      setselectedfield("communicationandmedia");
+                      pushHistoryHandler("communicationandmedia");
                     }}
                   />
-                  <label for="cam">Communication and Media</label>
+                  <label htmlFor="cam">Communication and Media</label>
                 </div>
 
                 <div className="checker_div">
@@ -129,11 +150,11 @@ const IntershipPage = () => {
                     id="education"
                     value="education"
                     onClick={() => {
-                      setCheck(false);
                       setselectedfield("education");
+                      pushHistoryHandler("education");
                     }}
                   />
-                  <label for="education">Education</label>
+                  <label htmlFor="education">Education</label>
                 </div>
 
                 <div className="checker_div">
@@ -144,11 +165,11 @@ const IntershipPage = () => {
                     id="engineering"
                     value="engineering"
                     onClick={() => {
-                      setCheck(false);
                       setselectedfield("engineering");
+                      pushHistoryHandler("engineering");
                     }}
                   />
-                  <label for="engineering">Engineering</label>
+                  <label htmlFor="engineering">Engineering</label>
                 </div>
 
                 <div className="checker_div">
@@ -159,11 +180,11 @@ const IntershipPage = () => {
                     id="fassion"
                     value="fassion"
                     onClick={() => {
-                      setCheck(false);
                       setselectedfield("fassion");
+                      pushHistoryHandler("fassion");
                     }}
                   />
-                  <label for="fassion">Fassion</label>
+                  <label htmlFor="fassion">Fassion</label>
                 </div>
 
                 <div className="checker_div">
@@ -174,11 +195,11 @@ const IntershipPage = () => {
                     id="field"
                     value="finance"
                     onClick={() => {
-                      setCheck(false);
                       setselectedfield("finance");
+                      pushHistoryHandler("finance");
                     }}
                   />
-                  <label for="field">Finance</label>
+                  <label htmlFor="field">Finance</label>
                 </div>
 
                 <div className="checker_div">
@@ -187,13 +208,13 @@ const IntershipPage = () => {
                     type="radio"
                     name="field"
                     value="food"
-                    id="food"
+                    id="foodindustry"
                     onClick={() => {
-                      setCheck(false);
-                      setselectedfield("food");
+                      setselectedfield("foodindustry");
+                      pushHistoryHandler("foodindustry");
                     }}
                   />
-                  <label for="food">Food Industry</label>
+                  <label htmlFor="food">Food Industry</label>
                 </div>
 
                 <div className="checker_div">
@@ -201,14 +222,14 @@ const IntershipPage = () => {
                     className="radiobtn"
                     type="radio"
                     name="field"
-                    id="itacs"
+                    id="itandcomputerscience"
                     value="itacs"
                     onClick={() => {
-                      setCheck(false);
-                      setselectedfield("IT and Computer Science");
+                      setselectedfield("itandcomputerscience");
+                      pushHistoryHandler("itandcomputerscience");
                     }}
                   />
-                  <label for="itacs">IT and Computer Science</label>
+                  <label htmlFor="itacs">IT and Computer Science</label>
                 </div>
 
                 <div className="checker_div">
@@ -216,14 +237,14 @@ const IntershipPage = () => {
                     className="radiobtn"
                     type="radio"
                     name="field"
-                    id="medicine"
+                    id="medicineandhealth"
                     value="medicine"
                     onClick={() => {
-                      setCheck(false);
-                      setselectedfield("medicine");
+                      setselectedfield("medicineandhealth");
+                      pushHistoryHandler("medicineandhealth");
                     }}
                   />
-                  <label for="medicine">Medicine and Health</label>
+                  <label htmlFor="medicine">Medicine and Health</label>
                 </div>
 
                 <div className="checker_div">
@@ -231,14 +252,14 @@ const IntershipPage = () => {
                     className="radiobtn"
                     type="radio"
                     name="field"
-                    id="polsci"
+                    id="politicalscience"
                     value="polsci"
                     onClick={() => {
-                      setCheck(false);
-                      setselectedfield("polsci");
+                      setselectedfield("politicalscience");
+                      pushHistoryHandler("politicalscience");
                     }}
                   />
-                  <label for="polsci">Political Science</label>
+                  <label htmlFor="polsci">Political Science</label>
                 </div>
 
                 <div className="checker_div">
@@ -246,14 +267,14 @@ const IntershipPage = () => {
                     className="radiobtn"
                     type="radio"
                     name="field"
-                    id="toursim"
+                    id="tourism"
                     value="tourism"
                     onClick={() => {
-                      setCheck(false);
                       setselectedfield("tourism");
+                      pushHistoryHandler("tourism");
                     }}
                   />
-                  <label for="tourism">Tourism</label>
+                  <label htmlFor="tourism">Tourism</label>
                 </div>
               </div>
             </div>

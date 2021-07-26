@@ -68,10 +68,9 @@
 }
 .topdivs p {
   font-family: "Roboto", Sans-serif;
-  font-size: 20px;
+  font-size: 24px;
   color: rgb(0, 0, 0, 0.6);
   cursor: pointer;
-  font-weight: bold;
 }
 
 .internships p {

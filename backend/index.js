@@ -19,10 +19,10 @@ if (process.env.NODE_ENV === "production") {
   });
 }
 
-app.listen(process.env.PORT || 3000, (err) => {
+app.listen(process.env.PORT || 5000, (err) => {
   if (err) {
-    console.log(`Unable to connect to PORT 3000 ${err}`);
+    console.log(`Unable to connect to PORT 5000 ${err}`);
   } else {
-    console.log("Connected to port 3000");
+    console.log("Connected to port 5000");
   }
 });

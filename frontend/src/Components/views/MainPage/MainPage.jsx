@@ -4,7 +4,7 @@ import mainPageImage from "../../Images/mainPagePicture.png";
 
 const MainPage = () => {
   const internshipPageHandler = () => {
-    window.location.href = "/intershipPage";
+    window.location.href = "/intershipPage/agriculture";
   };
 
   return (
