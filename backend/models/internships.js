@@ -13,11 +13,7 @@ const internshipSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  // companylogo: {
-  //     type: ,
-  //     required: true
-  // },
-  positionofferedL: {
+  positionoffered: {
     type: String,
     required: true,
   },
@@ -30,3 +26,7 @@ const internshipSchema = new mongoose.Schema({
     required: true,
   },
 });
+
+const CompanyInfo = mongoose.model("CompanyInfo", internshipSchema);
+
+export default CompanyInfo;

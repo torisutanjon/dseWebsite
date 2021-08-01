@@ -2,9 +2,14 @@ import React, { useState, useEffect } from "react";
 import "./intershipPage.css";
 import { internshipInfos } from "../../data/internshipinfos";
 import { useHistory } from "react-router-dom";
-
+import { useSelector } from "react-redux";
+import InternshipDiv from "./internshipdiv/Internshipdiv";
 const IntershipPage = () => {
   const [selectedfield, setselectedfield] = useState("agriculture");
+
+  const companyinfo = useSelector((state) => state.reducerFunctions);
+
+  console.log(companyinfo);
 
   const homePageHandler = () => {
     window.location.href = "/";
@@ -281,40 +286,15 @@ const IntershipPage = () => {
           </div>
         </div>
         <div className="botnav_rightnav">
-          {internshipInfos.map((internshipinfo, key) => {
-            if (internshipinfo.field === selectedfield) {
-              return (
-                <div className="div_main_body" key={key}>
-                  <div className="date_post_div">
-                    <p className="posted-p">
-                      Posted: <b>{internshipinfo.dateposted}</b>
-                    </p>
-                  </div>
-                  <div className="company_logo_div">
-                    <img src={internshipinfo.companylogo} alt="someimage" />
-                  </div>
-                  <div className="companyName_div">
-                    <p>{internshipinfo.companyname}</p>
-                  </div>
-
-                  <div className="position_div">
-                    <p>{internshipinfo.positionoffered}</p>
-                  </div>
-                  <div className="desc_div">
-                    <p>{internshipinfo.companydescription}</p>
-                  </div>
-                  <div className="duration_div">
-                    <p>{internshipinfo.internshipduration}</p>
-                  </div>
-                  <div className="apply_button_div">
-                    <button type="button">Apply Now</button>
-                  </div>
-                </div>
-              );
-            } else {
-              return "";
-            }
-          })}
+          {companyinfo.length ? (
+            <></>
+          ) : (
+            internshipInfos.map((companyinfo) => {
+              <div className="div_main_body" key={companyinfo.id}>
+                <InternshipDiv companyinfo={companyinfo} />
+              </div>;
+            })
+          )}
         </div>
       </div>
     </div>

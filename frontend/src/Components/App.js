@@ -1,25 +1,28 @@
+import React, { useEffect } from "react";
 import "./App.css";
-import { Route, Switch } from "react-router-dom";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 import MainPage from "./views/MainPage/MainPage";
 import InternshipPage from "./views/InternshipPage/IntershipPage";
+import { useDispatch } from "react-redux";
+import { getCompanyInfos } from "../actions/internships";
 // import axios from "axios";
 // import {useState, useEffect} from 'react'
 
 function App() {
-  // const [companies, setCompanies] = useState([])
+  const dispatch = useDispatch();
 
-  // useEffect(() => {
-  //   axios.get("http://localhost:3000/intershipPage/:field")
-  //   .then(res => setCompanies(res.data))
-  //   .catch(err => console.log(err))
-  // })
+  useEffect(() => {
+    dispatch(getCompanyInfos());
+  }, [dispatch]);
 
   return (
     <div className="App">
-      <Switch>
-        <Route exact path="/" component={MainPage} />
-        <Route path="/intershipPage/:field" component={InternshipPage} />
-      </Switch>
+      <BrowserRouter>
+        <Switch>
+          <Route exact path="/" component={MainPage} />
+          <Route path="/intershipPage/:field" component={InternshipPage} />
+        </Switch>
+      </BrowserRouter>
     </div>
   );
 }

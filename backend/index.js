@@ -7,7 +7,16 @@ const app = express();
 
 app.use(cors());
 
+//middlewares
 app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+
+//routes
+import internshipRoutes from "./routes/internshipRoutes.js";
+app.get("/", (req, res) => {
+  res.send("Hello World");
+});
+app.use("/intershipPage", internshipRoutes);
 
 // Serve static assets if in production
 if (process.env.NODE_ENV === "production") {
@@ -20,24 +29,26 @@ if (process.env.NODE_ENV === "production") {
   });
 }
 
-const CONNECTION_URL =
+//connecting to database//////////////////////////////////////////
+
+const urlconn =
   "mongodb+srv://dsewebsiteuser1:holyshitcomeone123@dsewebsitecluster.qf1vw.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
 
-mongoose
-  .connect(CONNECTION_URL, { useNewUrlParser: true, useUnifiedTopology: true })
-  .then(() =>
-    app.listen(process.env.PORT || 5000, () =>
-      console.log(`Running at Port 5000`)
-    )
-  )
-  .catch((err) => console.log(err.message));
+mongoose.connect(urlconn, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
 
-mongoose.set("useFindAndModify", false);
+var db = mongoose.connection;
+db.on("error", console.error.bind(console, "connection error"));
+db.once("open", () => {
+  console.log("Connected to MongoDB");
+});
 
-// app.listen(process.env.PORT || 5000, (err) => {
-//   if (err) {
-//     console.log(`Unable to connect to PORT 5000 ${err}`);
-//   } else {
-//     console.log("Connected to port 5000");
-//   }
-// });
+app.listen(process.env.PORT || 5000, (err) => {
+  if (err) {
+    console.log(`Unable to connect to PORT 5000 ${err}`);
+  } else {
+    console.log("Connected to port 5000");
+  }
+});

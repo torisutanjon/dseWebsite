@@ -1,0 +1,104 @@
+.date_post_div {
+  position: relative;
+  height: 10%;
+  width: 100%;
+}
+
+.posted-p {
+  position: relative;
+  left: 45%;
+  color: rgb(0, 0, 0, 0.7);
+  font-size: 11px;
+}
+
+.company_logo_div {
+  position: relative;
+  height: 15%;
+  width: 25%;
+  background: red;
+  margin-left: 5%;
+}
+
+.company_logo_div img {
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+.companyName_div,
+.position_div {
+  position: relative;
+  height: 10%;
+  width: 95%;
+  display: flex;
+  align-items: center;
+  margin-left: 5%;
+}
+
+.companyName_div p {
+  position: relative;
+  font-size: 24px;
+  font-weight: bold;
+  color: rgb(42, 14, 238, 0.75);
+}
+
+.position_div p {
+  position: relative;
+  font-weight: bold;
+  font-size: 18px;
+  color: rgb(42, 14, 238, 0.63);
+}
+.desc_div {
+  position: relative;
+  height: 25%;
+  width: 95%;
+  margin: 5%;
+}
+
+.desc_div p {
+  position: relative;
+  font-size: 18px;
+  font-weight: normal;
+  font-family: "Roboto", sans-serif;
+  color: rgb(0, 0, 0, 0.69);
+}
+.duration_div {
+  position: relative;
+  height: 10%;
+  width: 95%;
+  margin-left: 5%;
+}
+.duration_div p {
+  position: relative;
+  font-size: 14px;
+  font-family: "Roboto", sans-serif;
+}
+.apply_button_div {
+  position: relative;
+  height: 15%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.apply_button_div button {
+  position: relative;
+  height: 80%;
+  width: 45%;
+  margin-left: auto;
+  margin-right: 5%;
+  border: none;
+  cursor: pointer;
+  background: rgb(244, 118, 171, 0.65);
+  font-weight: bold;
+  font-size: 18px;
+  color: white;
+  border-radius: 5px;
+}
+.apply_button_div button:hover {
+  background: rgba(245, 85, 152, 0.65);
+  color: rgb(255, 217, 233);
+}
+.apply_button_div button:active {
+  background: rgba(248, 183, 210, 0.65);
+  color: rgb(244, 118, 171, 0.65);
+}
