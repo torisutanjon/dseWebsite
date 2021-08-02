@@ -1,4 +1,4 @@
-const reducerFunctions = (companyinfo = [], action) => {
+const internships = (companyinfo = [], action) => {
   switch (action.type) {
     case "FETCH_ALL":
       return action.payload;
@@ -7,4 +7,4 @@ const reducerFunctions = (companyinfo = [], action) => {
   }
 };
 
-export default reducerFunctions;
+export default internships;

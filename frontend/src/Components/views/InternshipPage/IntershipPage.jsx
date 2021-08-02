@@ -7,10 +7,10 @@ import InternshipDiv from "./internshipdiv/Internshipdiv";
 const IntershipPage = () => {
   const [selectedfield, setselectedfield] = useState("agriculture");
 
-  const companyinfo = useSelector((state) => state.reducerFunctions);
+  const companyinfo = useSelector((state) => state.internships);
 
   console.log(companyinfo);
-
+  console.log(companyinfo.length);
   const homePageHandler = () => {
     window.location.href = "/";
   };

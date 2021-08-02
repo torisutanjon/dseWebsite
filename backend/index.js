@@ -5,12 +5,10 @@ import mongoose from "mongoose";
 
 const app = express();
 
-app.use(cors());
-
 //middlewares
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-
+app.use(cors());
 //routes
 import internshipRoutes from "./routes/internshipRoutes.js";
 app.get("/", (req, res) => {

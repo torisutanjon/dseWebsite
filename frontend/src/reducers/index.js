@@ -1,6 +1,6 @@
 import { combineReducers } from "redux";
-import reducerFunctions from "./internships";
+import internships from "./internships";
 
 export default combineReducers({
-  reducerFunctions,
+  internships,
 });
