@@ -1,22 +1,22 @@
 import React, { useState, useEffect } from "react";
 import "./intershipPage.css";
-import { internshipInfos } from "../../data/internshipinfos";
+import { internshipInfos } from "../data/internshipinfos.js";
 import { useHistory } from "react-router-dom";
 import { useSelector } from "react-redux";
 import InternshipDiv from "./internshipdiv/Internshipdiv";
 const IntershipPage = () => {
   const [selectedfield, setselectedfield] = useState("agriculture");
 
-  const companyinfo = useSelector((state) => state.internships);
+  const companyinfo = useSelector((state) => state.internship);
 
   console.log(companyinfo);
-  console.log(companyinfo.length);
+  // console.log(companyinfo.length);
   const homePageHandler = () => {
     window.location.href = "/";
   };
 
   const internshipPage = () => {
-    window.location.href = `/intershipPage/${selectedfield}`;
+    window.location.href = `/internshipPage/${selectedfield}`;
   };
 
   useEffect(() => {

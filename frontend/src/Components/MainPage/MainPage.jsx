@@ -1,10 +1,10 @@
 import React from "react";
 import "./mainPageStyle.css";
-import mainPageImage from "../../Images/mainPagePicture.png";
+import mainPageImage from "../Images/mainPagePicture.png";
 
 const MainPage = () => {
   const internshipPageHandler = () => {
-    window.location.href = "/intershipPage/agriculture";
+    window.location.href = "/internshipPage/agriculture";
   };
 
   return (

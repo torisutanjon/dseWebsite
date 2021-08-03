@@ -1,52 +1,28 @@
 import express from "express";
-import path from "path";
-import cors from "cors";
 import mongoose from "mongoose";
+import cors from "cors";
+import path from "path";
+import internshipRoutes from "./routes/internshipRoutes.js";
 
 const app = express();
 
-//middlewares
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
 app.use(cors());
-//routes
-import internshipRoutes from "./routes/internshipRoutes.js";
-app.get("/", (req, res) => {
-  res.send("Hello World");
-});
-app.use("/intershipPage", internshipRoutes);
 
-// Serve static assets if in production
-if (process.env.NODE_ENV === "production") {
-  // Set static folder
-  app.use(express.static("frontend/build"));
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
-  // index.html for all page routes
-  app.get("*", (req, res) => {
-    res.sendFile(path.resolve(__dirname, "../frontend", "build", "index.html"));
-  });
-}
+app.use("/internshipPage", internshipRoutes);
 
-//connecting to database//////////////////////////////////////////
-
-const urlconn =
+const CONN_URL =
   "mongodb+srv://dsewebsiteuser1:holyshitcomeone123@dsewebsitecluster.qf1vw.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
 
-mongoose.connect(urlconn, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
+const PORT = process.env.PORT || 5000;
 
-var db = mongoose.connection;
-db.on("error", console.error.bind(console, "connection error"));
-db.once("open", () => {
-  console.log("Connected to MongoDB");
-});
+mongoose
+  .connect(CONN_URL, { useNewUrlParser: true, useUnifiedTopology: true })
+  .then(() =>
+    app.listen(PORT, () => console.log(`Server running at port ${PORT}`))
+  )
+  .catch((err) => console.log(err));
 
-app.listen(process.env.PORT || 5000, (err) => {
-  if (err) {
-    console.log(`Unable to connect to PORT 5000 ${err}`);
-  } else {
-    console.log("Connected to port 5000");
-  }
-});
+mongoose.set("useFindAndModify", false);

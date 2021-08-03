@@ -1,8 +1,7 @@
 import express from "express";
-import { getIntershipPage } from "../controllers/internshipcontrollers.js";
-
+import { getInternshipPage } from "../controllers/internshipRouteControllers.js";
 const router = express.Router();
 
-router.get("/", getIntershipPage);
+router.get("/", getInternshipPage);
 
 export default router;

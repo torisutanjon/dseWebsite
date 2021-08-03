@@ -1,6 +1,5 @@
 import { combineReducers } from "redux";
-import internships from "./internships";
-
-export default combineReducers({
-  internships,
+import internship from "./internship";
+export const reducers = combineReducers({
+  internship,
 });

@@ -1,11 +1,11 @@
 import mongoose from "mongoose";
 
-const internshipSchema = new mongoose.Schema({
-  dateposted: {
-    type: Date,
+const companyInfoSChema = mongoose.Schema({
+  field: {
+    type: String,
     required: true,
   },
-  field: {
+  dateposted: {
     type: String,
     required: true,
   },
@@ -27,6 +27,6 @@ const internshipSchema = new mongoose.Schema({
   },
 });
 
-const CompanyInfo = mongoose.model("CompanyInfo", internshipSchema);
+const CompanyInfoModel = mongoose.model("CompanyInfoModel", companyInfoSChema);
 
-export default CompanyInfo;
+export default CompanyInfoModel;
