@@ -1,12 +1,9 @@
-if (process.env.NODE_ENV !== "production") {
-  require("dotenv").config();
-}
-const config = require("./backend/config/database");
 const { MongoClient } = require("mongodb");
-const companyInfos = require("./companyinfos");
+const companyInfos = require("./companyinfos.json");
 
 // Replace the following with your Atlas connection string
-const url = config.database;
+const url =
+  "mongodb+srv://dsewebsiteuser1:holyshitcomeone123@dsewebsitecluster.qf1vw.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
 const client = new MongoClient(url);
 
 // The database to use
@@ -25,10 +22,6 @@ async function run() {
 
     // Insert a single document, wait for promise so we can read it back
     const p = await col.insertOne(companyInfos);
-    // Find one document
-    const myDoc = await col.findOne();
-    // Print to the console
-    console.log(myDoc);
   } catch (err) {
     console.log(err.stack);
   } finally {

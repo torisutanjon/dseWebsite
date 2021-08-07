@@ -8,4 +8,6 @@ export const getInternshipPage = async (req, res) => {
   } catch (error) {
     res.status(404).json({ message: error.message });
   }
+
+  // console.log("This is getInternshipPage function running good");
 };

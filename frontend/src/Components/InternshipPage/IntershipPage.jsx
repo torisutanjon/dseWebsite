@@ -4,7 +4,16 @@ import { internshipInfos } from "../data/internshipinfos.js";
 import { useHistory } from "react-router-dom";
 import { useSelector } from "react-redux";
 import InternshipDiv from "./internshipdiv/Internshipdiv";
+import { useDispatch } from "react-redux";
+import { getCompanyInfos } from "../../actions/internships";
+
 const IntershipPage = () => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getCompanyInfos());
+  }, [dispatch]);
+
   const [selectedfield, setselectedfield] = useState("agriculture");
 
   const companyinfo = useSelector((state) => state.internship);
@@ -38,7 +47,7 @@ const IntershipPage = () => {
 
   let history = useHistory();
   const pushHistoryHandler = (params) => {
-    history.push(`/intershipPage/${params}`);
+    history.push(`/internshipPage/${params}`);
   };
 
   return (
@@ -290,9 +299,11 @@ const IntershipPage = () => {
             <></>
           ) : (
             internshipInfos.map((companyinfo) => {
-              <div className="div_main_body" key={companyinfo.id}>
-                <InternshipDiv companyinfo={companyinfo} />
-              </div>;
+              return (
+                <div className="div_main_body" key={companyinfo.id}>
+                  <InternshipDiv companyinfo={companyinfo} />
+                </div>
+              );
             })
           )}
         </div>

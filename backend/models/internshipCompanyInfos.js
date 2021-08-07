@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const companyInfoSChema = mongoose.Schema({
+const companyInfoSChema = new mongoose.Schema({
   field: {
     type: String,
     required: true,
@@ -27,6 +27,6 @@ const companyInfoSChema = mongoose.Schema({
   },
 });
 
-const CompanyInfoModel = mongoose.model("CompanyInfoModel", companyInfoSChema);
+const CompanyInfoModel = mongoose.model("companyinfos", companyInfoSChema);
 
 export default CompanyInfoModel;

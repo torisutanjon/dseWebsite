@@ -20,6 +20,8 @@
   "homepage": "https://github.com/torisutanjon/dsewebsite#readme",
   "devDependencies": {
     "concurrently": "^6.2.0"
+  },
+  "dependencies": {
+    "mongodb": "^4.1.0"
   }
 }
- 
