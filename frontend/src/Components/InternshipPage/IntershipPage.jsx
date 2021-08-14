@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import "./intershipPage.css";
-import { internshipInfos } from "../data/internshipinfos.js";
 import { useHistory } from "react-router-dom";
 import { useSelector } from "react-redux";
 import InternshipDiv from "./internshipdiv/Internshipdiv";
@@ -16,9 +15,16 @@ const IntershipPage = () => {
 
   const [selectedfield, setselectedfield] = useState("agriculture");
 
-  const companyinfo = useSelector((state) => state.internship);
+  const companyinfos = useSelector((state) => state.internship);
 
-  console.log(companyinfo);
+  //checking purposes
+
+  // companyinfos.map((companyinfo) => {
+  //   if (companyinfo.field === selectedfield) {
+  //     console.log(companyinfo);
+  //   }
+  // });
+
   // console.log(companyinfo.length);
   const homePageHandler = () => {
     window.location.href = "/";
@@ -295,16 +301,18 @@ const IntershipPage = () => {
           </div>
         </div>
         <div className="botnav_rightnav">
-          {companyinfo.length ? (
-            <></>
-          ) : (
-            internshipInfos.map((companyinfo) => {
-              return (
-                <div className="div_main_body" key={companyinfo.id}>
-                  <InternshipDiv companyinfo={companyinfo} />
-                </div>
-              );
+          {companyinfos.length ? (
+            companyinfos.map((companyinfo, key) => {
+              if (companyinfo.field === selectedfield) {
+                return (
+                  <div className="div_main_body" key={key}>
+                    <InternshipDiv companyinfo={companyinfo} />
+                  </div>
+                );
+              }
             })
+          ) : (
+            <></>
           )}
         </div>
       </div>

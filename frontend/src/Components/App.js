@@ -13,7 +13,7 @@ function App() {
       <BrowserRouter>
         <Switch>
           <Route exact path="/" component={MainPage} />
-          <Route path="/internshipPage/" component={InternshipPage} />
+          <Route path="/internshipPage/:field" component={InternshipPage} />
         </Switch>
       </BrowserRouter>
     </div>
