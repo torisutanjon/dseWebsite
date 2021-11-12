@@ -1,6 +1,7 @@
 import express from "express";
 import cors from "cors";
 import mongoose from "mongoose";
+import dotenv from "dotenv";
 // import path from "path";
 import internshipRoutes from "./routes/internshipRoutes.js";
 
@@ -11,11 +12,10 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-const CONN =
-  "mongodb+srv://dsewebsiteuser1:holyshitcomeone123@dsewebsitecluster.qf1vw.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
+dotenv.config();
 
 mongoose
-  .connect(CONN, {
+  .connect(process.env.DB_CONN_STRING, {
     dbName: "dsewebsite_database",
     useNewUrlParser: true,
     useUnifiedTopology: true,

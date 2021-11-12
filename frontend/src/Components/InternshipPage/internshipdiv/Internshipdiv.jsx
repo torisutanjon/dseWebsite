@@ -1,7 +1,7 @@
 import React from "react";
 import "./internshipdiv.css";
 
-const internshipdiv = ({ companyinfo }) => {
+const Internshipdiv = ({ companyinfo, getValue }) => {
   return (
     <>
       <div className="date_post_div">
@@ -15,7 +15,6 @@ const internshipdiv = ({ companyinfo }) => {
       <div className="companyName_div">
         <p>{companyinfo.companyname}</p>
       </div>
-
       <div className="position_div">
         <p>{companyinfo.positionoffered}</p>
       </div>
@@ -26,10 +25,17 @@ const internshipdiv = ({ companyinfo }) => {
         <p>{companyinfo.internshipduration}</p>
       </div>
       <div className="apply_button_div">
-        <button type="button">Apply Now</button>
+        <button
+          type="button"
+          onClick={() => {
+            getValue("visible", companyinfo._id);
+          }}
+        >
+          Apply Now
+        </button>
       </div>
     </>
   );
 };
 
-export default internshipdiv;
+export default Internshipdiv;

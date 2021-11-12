@@ -5,25 +5,22 @@ import { useSelector } from "react-redux";
 import InternshipDiv from "./internshipdiv/Internshipdiv";
 import { useDispatch } from "react-redux";
 import { getCompanyInfos } from "../../actions/internships";
+import InternShipModal from "./internshipDivModal/InternshipDivModal";
 
 const IntershipPage = () => {
   const dispatch = useDispatch();
+  const [selectedfield, setselectedfield] = useState("agriculture");
+  const [visibilityState, setVisibilityState] = useState("visible");
 
   useEffect(() => {
-    dispatch(getCompanyInfos());
-  }, [dispatch]);
-
-  const [selectedfield, setselectedfield] = useState("agriculture");
+    dispatch(getCompanyInfos(selectedfield));
+  }, [dispatch, selectedfield]);
 
   const companyinfos = useSelector((state) => state.internship);
 
-  //checking purposes
-
-  // companyinfos.map((companyinfo) => {
-  //   if (companyinfo.field === selectedfield) {
-  //     console.log(companyinfo);
-  //   }
-  // });
+  //setstate from the companyinfo came from internshipdiv component
+  const [selectedCompanyDataID, setSelectedCompanyDataID] = useState("");
+  // console.log(companyinfos);
 
   // console.log(companyinfo.length);
   const homePageHandler = () => {
@@ -34,28 +31,83 @@ const IntershipPage = () => {
     window.location.href = `/internshipPage/${selectedfield}`;
   };
 
+  let history = useHistory();
   useEffect(() => {
+    //change url every update of selectedfield
+    const pushHistoryHandler = () => {
+      history.push(`/internshipPage/${selectedfield}`);
+    };
+
+    //detect url change
+    //then re-render UI with selectedfield
+    window.addEventListener("popstate", (event) => {
+      var string = window.location.href;
+      var lastword = string.substring(string.lastIndexOf("/") + 1);
+      console.log(lastword);
+      setselectedfield(lastword);
+    });
+
+    //update checked value of clicked and unclicked radiobutton
     var radioButtons = [];
     radioButtons = document.getElementsByClassName("radiobtn");
     for (var i = 0; i < radioButtons.length; i++) {
       if (radioButtons[i].id === selectedfield) {
         radioButtons[i].checked = true;
-        // console.log(true);
-        console.log(radioButtons[i].id);
       } else {
         radioButtons[i].checked = false;
-        // console.log(false);
       }
     }
+    pushHistoryHandler();
+    setVisibilityState("hidden");
+  }, [selectedfield, history]);
 
-    // console.log(radioButtons);
-  }, [selectedfield]);
-
-  let history = useHistory();
-  const pushHistoryHandler = (params) => {
-    history.push(`/internshipPage/${params}`);
+  //get value from internshipdiv component
+  const getChildValue = (value, selectedcompany) => {
+    setVisibilityState(value);
+    setSelectedCompanyDataID(selectedcompany);
   };
 
+  //to render either the internshipdiv component or internshipdivmodal component
+  const renderingFunction = () => {
+    if (visibilityState === "visible") {
+      return companyinfos.map((data, key) => {
+        if (data._id === selectedCompanyDataID) {
+          console.log(data);
+          return (
+            <div className="modal_div" key={key}>
+              <InternShipModal
+                name={data.companyname}
+                address={data.companyaddress}
+                contact={data.companycontact}
+                email={data.companyemail}
+                description={data.companydescription}
+              />
+            </div>
+          );
+        }
+        return null;
+      });
+    } else {
+      return companyinfos.length ? (
+        companyinfos.map((companyinfo, key) => {
+          if (companyinfo.field === selectedfield) {
+            return (
+              <div className="div_main_body" key={key} id={key}>
+                <InternshipDiv
+                  companyinfo={companyinfo}
+                  getValue={getChildValue}
+                />
+              </div>
+            );
+          } else {
+            return null;
+          }
+        })
+      ) : (
+        <></>
+      );
+    }
+  };
   return (
     <div className="internship_mainbody">
       <div className="internship_topnav">
@@ -110,8 +162,8 @@ const IntershipPage = () => {
                     id="agriculture"
                     value="agriculture"
                     onClick={() => {
+                      setVisibilityState("hidden");
                       setselectedfield("agriculture");
-                      pushHistoryHandler("agriculture");
                     }}
                   />
                   <label htmlFor="agriculture">Agriculture</label>
@@ -125,8 +177,8 @@ const IntershipPage = () => {
                     id="architecture"
                     value="architecture"
                     onClick={() => {
+                      setVisibilityState("hidden");
                       setselectedfield("architecture");
-                      pushHistoryHandler("architecture");
                     }}
                   />
                   <label htmlFor="architecture">Architecture</label>
@@ -140,8 +192,8 @@ const IntershipPage = () => {
                     id="businessandmarketing"
                     value="bam"
                     onClick={() => {
+                      setVisibilityState("hidden");
                       setselectedfield("businessandmarketing");
-                      pushHistoryHandler("businessandmarketing");
                     }}
                   />
                   <label htmlFor="bam">Business And Marketing</label>
@@ -155,8 +207,8 @@ const IntershipPage = () => {
                     id="communicationandmedia"
                     value="cam"
                     onClick={() => {
+                      setVisibilityState("hidden");
                       setselectedfield("communicationandmedia");
-                      pushHistoryHandler("communicationandmedia");
                     }}
                   />
                   <label htmlFor="cam">Communication and Media</label>
@@ -170,8 +222,8 @@ const IntershipPage = () => {
                     id="education"
                     value="education"
                     onClick={() => {
+                      setVisibilityState("hidden");
                       setselectedfield("education");
-                      pushHistoryHandler("education");
                     }}
                   />
                   <label htmlFor="education">Education</label>
@@ -185,8 +237,8 @@ const IntershipPage = () => {
                     id="engineering"
                     value="engineering"
                     onClick={() => {
+                      setVisibilityState("hidden");
                       setselectedfield("engineering");
-                      pushHistoryHandler("engineering");
                     }}
                   />
                   <label htmlFor="engineering">Engineering</label>
@@ -200,8 +252,8 @@ const IntershipPage = () => {
                     id="fassion"
                     value="fassion"
                     onClick={() => {
+                      setVisibilityState("hidden");
                       setselectedfield("fassion");
-                      pushHistoryHandler("fassion");
                     }}
                   />
                   <label htmlFor="fassion">Fassion</label>
@@ -212,11 +264,11 @@ const IntershipPage = () => {
                     className="radiobtn"
                     type="radio"
                     name="field"
-                    id="field"
+                    id="finance"
                     value="finance"
                     onClick={() => {
+                      setVisibilityState("hidden");
                       setselectedfield("finance");
-                      pushHistoryHandler("finance");
                     }}
                   />
                   <label htmlFor="field">Finance</label>
@@ -230,8 +282,8 @@ const IntershipPage = () => {
                     value="food"
                     id="foodindustry"
                     onClick={() => {
+                      setVisibilityState("hidden");
                       setselectedfield("foodindustry");
-                      pushHistoryHandler("foodindustry");
                     }}
                   />
                   <label htmlFor="food">Food Industry</label>
@@ -245,8 +297,8 @@ const IntershipPage = () => {
                     id="itandcomputerscience"
                     value="itacs"
                     onClick={() => {
+                      setVisibilityState("hidden");
                       setselectedfield("itandcomputerscience");
-                      pushHistoryHandler("itandcomputerscience");
                     }}
                   />
                   <label htmlFor="itacs">IT and Computer Science</label>
@@ -260,8 +312,8 @@ const IntershipPage = () => {
                     id="medicineandhealth"
                     value="medicine"
                     onClick={() => {
+                      setVisibilityState("hidden");
                       setselectedfield("medicineandhealth");
-                      pushHistoryHandler("medicineandhealth");
                     }}
                   />
                   <label htmlFor="medicine">Medicine and Health</label>
@@ -275,8 +327,8 @@ const IntershipPage = () => {
                     id="politicalscience"
                     value="polsci"
                     onClick={() => {
+                      setVisibilityState("hidden");
                       setselectedfield("politicalscience");
-                      pushHistoryHandler("politicalscience");
                     }}
                   />
                   <label htmlFor="polsci">Political Science</label>
@@ -290,8 +342,8 @@ const IntershipPage = () => {
                     id="tourism"
                     value="tourism"
                     onClick={() => {
+                      setVisibilityState("hidden");
                       setselectedfield("tourism");
-                      pushHistoryHandler("tourism");
                     }}
                   />
                   <label htmlFor="tourism">Tourism</label>
@@ -301,18 +353,17 @@ const IntershipPage = () => {
           </div>
         </div>
         <div className="botnav_rightnav">
-          {companyinfos.length ? (
-            companyinfos.map((companyinfo, key) => {
-              if (companyinfo.field === selectedfield) {
-                return (
-                  <div className="div_main_body" key={key}>
-                    <InternshipDiv companyinfo={companyinfo} />
-                  </div>
-                );
-              }
-            })
+          {visibilityState === "visible" ? (
+            <div
+              className="main_modal_div"
+              style={{ visibility: visibilityState }}
+            >
+              {renderingFunction()}
+            </div>
           ) : (
-            <></>
+            <div className="internship_div_main_body">
+              {renderingFunction()}
+            </div>
           )}
         </div>
       </div>

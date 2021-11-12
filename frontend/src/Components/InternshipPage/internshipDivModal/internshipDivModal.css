@@ -1,0 +1,169 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap");
+
+.modal_top_container {
+  position: relative;
+  height: 75%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-bottom: 1px rgba(0, 0, 0, 0.24) solid;
+}
+.modal_bottom_container {
+  position: relative;
+  height: 25%;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  border-top: 1px rgba(0, 0, 0, 0.24) solid;
+}
+
+.top_upper_container,
+.top_lower_container {
+  position: relative;
+  height: 50%;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.upper_logo_div {
+  position: relative;
+  height: 100%;
+  width: 20%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.upper_logo_div img {
+  position: relative;
+  height: 100px;
+  width: 100px;
+  background: orange;
+}
+.upper_companyname_div {
+  position: relative;
+  height: 100%;
+  width: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.upper_companyname_div p {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 55px;
+}
+.lower_left_container {
+  position: relative;
+  height: 100%;
+  width: 50%;
+  display: grid;
+  grid-template-rows: 33.3% 33.3% 33.3%;
+}
+.company_left_data_div {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.company_left_data_div p {
+  font-size: 20px;
+  font-family: "Roboto", sans-serif;
+}
+.company_left_data_div .label_p {
+  padding-left: 10%;
+  text-align: left;
+}
+.company_left_data_div .data_p {
+  color: #828fbb;
+}
+.lower_right_container {
+  position: relative;
+  height: 100%;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: left;
+}
+.company_desc_title_div,
+.company_desc_div {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 28px;
+  padding-left: 5%;
+}
+.company_desc_div {
+  font-size: 18px;
+  padding-right: 5%;
+  color: #828fbb;
+}
+.apply_btn_div {
+  position: relative;
+  height: 100;
+  width: 85%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.apply_btn {
+  position: relative;
+  height: 35%;
+  width: 40%;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  cursor: pointer;
+  font-family: "Roboto", sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  background: rgb(237, 99, 178, 0.65);
+  transition: 0.2s;
+}
+.goback_btn_div {
+  position: relative;
+  height: 100%;
+  width: 15%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.goback_btn {
+  position: relative;
+  height: 20%;
+  width: 80%;
+  margin-bottom: 10%;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  outline: none;
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  background: #ed63b2;
+  transition: 0.2s;
+}
+
+.apply_btn:hover {
+  background: rgba(253, 167, 216, 0.65);
+  color: white;
+}
+.apply_btn:active {
+  transition: 0;
+  color: black;
+}
+.goback_btn:hover {
+  background: #f7b2d9;
+  color: white;
+}
+.goback_btn:active {
+  transition: 0;
+  color: black;
+}

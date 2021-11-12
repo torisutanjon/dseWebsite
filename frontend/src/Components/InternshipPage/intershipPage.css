@@ -10,6 +10,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  overflow-x: hidden;
 }
 
 .internship_topnav {
@@ -246,11 +247,15 @@
   position: relative;
   height: 95%;
   width: 85%;
-  display: grid;
-  /* margin: .%; */
-  grid-template-columns: 24% 24% 24% 24%;
 }
 
+.internship_div_main_body {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 24% 24% 24% 24%;
+}
 .div_main_body {
   position: relative;
   height: 90%;
@@ -262,4 +267,22 @@
   display: flex;
   flex-direction: column;
   text-align: left;
+}
+
+.main_modal_div {
+  z-index: 1;
+  position: relative;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal_div {
+  position: relative;
+  height: 75%;
+  width: 60%;
+  border: 1px rgba(0, 0, 0, 0.24) solid;
+  border-radius: 5px;
 }
